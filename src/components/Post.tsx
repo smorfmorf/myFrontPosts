@@ -35,7 +35,7 @@ export const Post: React.FC<Props> = ({ id, imageUrl, title, createdAt, text, au
       dispatch(deletePosts(id));
    }
    return (
-      <article key={id} className="group relative border border-slate-300 rounded-xl shadow-xl overflow-visible hover:-translate-y-2 transition hover:border-blue-500">
+      <article key={id} className="group relative border-1 border-gray-300 rounded-xl shadow-xl overflow-visible hover:-translate-y-2 transition hover:border-blue-500">
          {isEditable && (
             <div className="z-10 absolute top-2 right-3 bg-gray-200 rounded-xl transition opacity-0 group-hover:opacity-100">
                <Link to={`/add-post/${id}`}>
@@ -50,12 +50,12 @@ export const Post: React.FC<Props> = ({ id, imageUrl, title, createdAt, text, au
          )}
 
          {imageUrl && imageUrl.endsWith(".mp4") ? (
-            <video controls className={clsx("w-full h-[300px] object-cover rounded-lg ", { "min-h-[300px] h-full": isFullPost })}>
+            <video controls className={clsx("w-full h-[300px] object-cover rounded-md ", { "min-h-[300px] h-full": isFullPost })}>
                <source src={import.meta.env.VITE_APP_SERVER + imageUrl} type="video/mp4" />
                Your browser does not support the video tag.
             </video>
          ) : (
-            <img src={imageUrl ? import.meta.env.VITE_APP_SERVER + imageUrl : "test.jpg"} className={clsx("w-full h-[300px] object-cover rounded-lg ", { "min-h-[300px] h-full": isFullPost })} alt="" />
+            <img src={imageUrl ? import.meta.env.VITE_APP_SERVER + imageUrl : "test.jpg"} className={clsx("w-full h-[300px] object-cover rounded-md ", { "min-h-[300px] h-full": isFullPost })} alt="" />
          )}
 
          {/* UserInfo */}

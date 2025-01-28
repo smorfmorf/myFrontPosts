@@ -98,12 +98,12 @@ const AddPost = () => {
                   Удалить
                </Button>
                {imageUrl.endsWith(".mp4") ? (
-                  <video controls className="w-full">
+                  <video controls className="w-full h-[50vh] object-cover rounded-lg ">
                      <source src={import.meta.env.VITE_APP_SERVER + imageUrl} type="video/mp4" />
                      Your browser does not support the video tag.
                   </video>
                ) : (
-                  <img src={import.meta.env.VITE_APP_SERVER + imageUrl} className="w-full" alt="" />
+                  <img src={import.meta.env.VITE_APP_SERVER + imageUrl} className="w-full h-[50vh] object-cover rounded-lg" alt="" />
                )}
             </>
          )}
