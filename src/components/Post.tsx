@@ -79,3 +79,4 @@ export const Post: React.FC<Props> = ({ id, imageUrl, title, createdAt, text, au
       </article>
    );
 };
+//
