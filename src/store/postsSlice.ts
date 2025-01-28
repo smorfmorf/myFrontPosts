@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
 import axios from "../axios";
 
 export interface Author {
@@ -49,14 +48,12 @@ export const deletePosts = createAsyncThunk<PostsItem[], number>("deletePosts", 
 export const postsSlice = createSlice({
    name: "posts",
    initialState,
-   reducers: {
-      incrementByAmount: (state, action: PayloadAction<number>) => {},
-   },
+   reducers: {},
    extraReducers:
       // в нем описываем состояние асинхроного экшена(запроса) => 3 Cценария:
       (builder) => {
          // получение статьей
-         builder.addCase(fetchPosts.pending, (state, action) => {
+         builder.addCase(fetchPosts.pending, (state) => {
             state.posts = [];
             state.status = Status.LOADING;
          });
@@ -64,7 +61,7 @@ export const postsSlice = createSlice({
             state.posts = action.payload;
             state.status = Status.SUCCESS;
          });
-         builder.addCase(fetchPosts.rejected, (state, action) => {
+         builder.addCase(fetchPosts.rejected, (state) => {
             state.posts = [];
             state.status = Status.ERROR;
          });
@@ -75,7 +72,5 @@ export const postsSlice = createSlice({
          });
       },
 });
-
-export const { incrementByAmount } = postsSlice.actions;
 
 export default postsSlice.reducer;

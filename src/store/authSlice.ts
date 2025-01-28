@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
 import axios from "../axios";
 
 export interface Auth {
@@ -56,7 +55,7 @@ export const authSlice = createSlice({
       // в нем описываем состояние асинхроного экшена(запроса) => 3 Cценария:
       (builder) => {
          //* register
-         builder.addCase(fetchRegister.pending, (state, action) => {
+         builder.addCase(fetchRegister.pending, (state) => {
             state.user = null;
             state.status = Status.LOADING;
          });
@@ -72,7 +71,7 @@ export const authSlice = createSlice({
          });
 
          //* login
-         builder.addCase(fetchLogin.pending, (state, action) => {
+         builder.addCase(fetchLogin.pending, (state) => {
             state.user = null;
             state.status = Status.LOADING;
          });
@@ -87,7 +86,7 @@ export const authSlice = createSlice({
             state.status = Status.ERROR;
          });
          //* auth
-         builder.addCase(fetchAuth.pending, (state, action) => {
+         builder.addCase(fetchAuth.pending, (state) => {
             state.user = null;
             state.status = Status.LOADING;
          });
