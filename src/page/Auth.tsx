@@ -49,7 +49,7 @@ const Auth = () => {
    }
 
    return (
-      <div className="h-[50vh] flex flex-col justify-center items-center">
+      <div className="h-[60vh] flex flex-col justify-center items-center">
          <div className="mx-auto max-w-[560px] w-full bg-[#C4C4C4] shadow-md rounded-xl">
             <h2 className="text-2xl font-bold pt-[20px] mb-[17px] text-center">{isLogin ? "Авторизация" : "Регистрация"}</h2>
 
