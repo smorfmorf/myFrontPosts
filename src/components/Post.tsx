@@ -48,16 +48,16 @@ export const Post: React.FC<Props> = ({ id, imageUrl, title, createdAt, text, au
                </IconButton>
             </div>
          )}
-         <Link to={`/posts/${id}`}>
-            {imageUrl && imageUrl.endsWith(".mp4") ? (
-               <video controls className={clsx("w-full h-[300px] object-cover rounded-lg ", { "min-h-[300px] h-full": isFullPost })}>
-                  <source src={import.meta.env.VITE_APP_SERVER + imageUrl} type="video/mp4" />
-                  Your browser does not support the video tag.
-               </video>
-            ) : (
-               <img src={imageUrl ? import.meta.env.VITE_APP_SERVER + imageUrl : "test.jpg"} className={clsx("w-full h-[300px] object-cover rounded-lg ", { "min-h-[300px] h-full": isFullPost })} alt="" />
-            )}
-         </Link>
+
+         {imageUrl && imageUrl.endsWith(".mp4") ? (
+            <video controls className={clsx("w-full h-[300px] object-cover rounded-lg ", { "min-h-[300px] h-full": isFullPost })}>
+               <source src={import.meta.env.VITE_APP_SERVER + imageUrl} type="video/mp4" />
+               Your browser does not support the video tag.
+            </video>
+         ) : (
+            <img src={imageUrl ? import.meta.env.VITE_APP_SERVER + imageUrl : "test.jpg"} className={clsx("w-full h-[300px] object-cover rounded-lg ", { "min-h-[300px] h-full": isFullPost })} alt="" />
+         )}
+
          {/* UserInfo */}
          <div className="bg-white/50 p-5">
             <div className="flex items-center gap-3 mb-5">
@@ -68,9 +68,11 @@ export const Post: React.FC<Props> = ({ id, imageUrl, title, createdAt, text, au
                </div>
             </div>
             <div>
-               <h2 className="mb-3 text-2xl font-bold">
-                  <ReactMarkdown>{title}</ReactMarkdown>
-               </h2>
+               <Link to={`/posts/${id}`}>
+                  <h2 className="mb-3 text-2xl font-bold">
+                     <ReactMarkdown>{title}</ReactMarkdown>
+                  </h2>
+               </Link>
                <div className="text-slate-400">
                   <ReactMarkdown>{text}</ReactMarkdown>
                </div>
@@ -79,4 +81,3 @@ export const Post: React.FC<Props> = ({ id, imageUrl, title, createdAt, text, au
       </article>
    );
 };
-//
