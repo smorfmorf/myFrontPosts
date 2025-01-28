@@ -37,7 +37,7 @@ export const Post: React.FC<Props> = ({ id, imageUrl, title, createdAt, text, au
    return (
       <article key={id} className="group relative border border-slate-300 rounded-xl shadow-xl overflow-visible hover:-translate-y-2 transition hover:border-blue-500">
          {isEditable && (
-            <div className=" absolute top-2 right-3 bg-gray-200 rounded-xl transition opacity-0 group-hover:opacity-100">
+            <div className="z-10 absolute top-2 right-3 bg-gray-200 rounded-xl transition opacity-0 group-hover:opacity-100">
                <Link to={`/add-post/${id}`}>
                   <IconButton color="primary">
                      <EditIcon />
