@@ -50,7 +50,7 @@ const Auth = () => {
 
    return (
       <div className="h-[50vh] flex flex-col justify-center items-center">
-         <div className="mx-auth w-[560px] bg-[#C4C4C4] shadow-md rounded-xl">
+         <div className="mx-auto max-w-[560px] w-full bg-[#C4C4C4] shadow-md rounded-xl">
             <h2 className="text-2xl font-bold pt-[20px] mb-[17px] text-center">{isLogin ? "Авторизация" : "Регистрация"}</h2>
 
             <form onSubmit={handleSubmit(Submit)} className="p-12">
@@ -71,8 +71,8 @@ const Auth = () => {
                   <TextField {...register("password", { required: "Введите пароль" })} fullWidth label="Введите ваш пароль..." type="password" />
                </div>
 
-               <div className="flex items-center justify-between">
-                  <p className="cursor-pointer flex gap-2 items-center">
+               <div className="flex items-center justify-between gap-2">
+                  <p className="cursor-pointer flex  gap-2 items-center ">
                      {isLogin ? "Нет аккаунта?" : "Есть аккаунт?"}
                      <Link to={isLogin ? "/register" : "/login"} className="text-blue-500">
                         {isLogin ? "Зарегистрироваться" : "Войти"}
