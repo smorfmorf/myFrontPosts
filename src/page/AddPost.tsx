@@ -52,7 +52,7 @@ const AddPost = () => {
          //@ts-ignore
          formData.append("image", inputFileRef.current.files[0]);
          const { data } = await axios.post("/upload", formData);
-         console.log("data: ", data);
+         console.log("dataPost: ", data);
          setImageUrl(data.url);
       } catch (e) {
          alert("Ошибка при загрузке файла");
