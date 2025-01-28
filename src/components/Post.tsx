@@ -64,9 +64,9 @@ export const Post: React.FC<Props> = ({ id, imageUrl, title, createdAt, text, au
                <h2 className="mb-3 text-2xl font-bold">
                   <ReactMarkdown>{title}</ReactMarkdown>
                </h2>
-               <p className="text-slate-400">
+               <div className="text-slate-400">
                   <ReactMarkdown>{text}</ReactMarkdown>
-               </p>
+               </div>
             </div>
          </div>
       </article>
