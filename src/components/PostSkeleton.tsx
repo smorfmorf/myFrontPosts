@@ -1,4 +1,4 @@
-import { Button, Skeleton, Stack, TextField } from "@mui/material";
+import { Skeleton, Stack } from "@mui/material";
 
 export const PostSkeleton = () => {
    return (
