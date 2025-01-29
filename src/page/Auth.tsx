@@ -73,12 +73,12 @@ const Auth = () => {
 
                <div className="flex items-center justify-between gap-2">
                   <p className="cursor-pointer flex  gap-2 items-center ">
-                     {isLogin ? "Нет аккаунта?" : "Есть аккаунт?"}
+                     <span className="hidden sm:block">{isLogin ? "Нет аккаунта?" : "Есть аккаунт?"}</span>
                      <Link to={isLogin ? "/register" : "/login"} className="text-blue-500">
                         {isLogin ? "Зарегистрироваться" : "Войти"}
                      </Link>
                   </p>
-                  <Button type="submit" variant="contained" className="h-10">
+                  <Button type="submit" variant="contained" className=" sm:h-10">
                      {isLogin ? "Войти" : "Зарегистрироваться"}
                   </Button>
                </div>
